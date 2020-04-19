@@ -76,6 +76,22 @@ void saveData(Product *s, int count){
     printf("저장됨!\n");
 }
 
+int loadData(Product s[]){
+    FILE *fp;
+    fp = fopen("Product.txt", "rt");
+    if(fp ==NULL){
+        printf("=> 파일 없음\n");
+        return 0;
+    }
+    for(; ; count++){
+        fscanf(fp,"%s %d %d %d %d", s[count].name, &s[count].weight, &s[count].price, &s[count].s_price, &s[count].star);
+        if(feof(fp)){ break;}
+    }
+    fclose(fp);
+    printf("=> 로딩 성공!\n");
+    return count;
+}
+
 void searchName(Product *s, int count){
     int scount =0;
     char search[20];
