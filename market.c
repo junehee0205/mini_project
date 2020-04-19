@@ -46,9 +46,27 @@ int main(void){
                 if(deleteProduct(&plist[no-1])){
                 count --;}
             }
+	else if (menu ==5){
+            if(count ==0){
+                printf("데이터가 없습니다\n");
+            }
+            else{
+                saveData(plist, curcount);
+            }
         }
-        
-    }
+        else if (menu == 6){
+            searchName(plist, curcount);
+        }
+        else if (menu == 7){
+            searchWeight(plist, curcount);
+        }
+        else if (menu == 8){
+            searchPrice(plist, curcount);
+        }
+        else if (menu == 9){
+            searchStar(plist, curcount);
+        }
+	}
     printf("종료됨!\n");
     return 0;
 }
