@@ -1,15 +1,10 @@
 #include "manager.h"
 Product plist[100];
-#define DEBUG
     
     
 int main(void){
-#ifdef DEBUG
-    printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
-   
-#endif
 
-    count = loadData(plist);  
+    count = loadData(plist);
     curcount = count;
 
     while (1){
@@ -46,7 +41,8 @@ int main(void){
                 if(deleteProduct(&plist[no-1])){
                 count --;}
             }
-	else if (menu ==5){
+        }
+        else if (menu ==5){
             if(count ==0){
                 printf("데이터가 없습니다\n");
             }
@@ -66,7 +62,8 @@ int main(void){
         else if (menu == 9){
             searchStar(plist, curcount);
         }
-	}
+    }
     printf("종료됨!\n");
     return 0;
 }
+
