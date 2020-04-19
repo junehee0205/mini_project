@@ -65,6 +65,17 @@ int updateProduct(Product *s){
     printf("=> 변경됨!\n");
 }
 
+void saveData(Product *s, int count){
+    FILE *fp;
+    fp = fopen("Product.txt", "wt");
+    for(int i=0;i<count; i++){
+        if(s[i].price == -1 ) continue;
+        fprintf(fp, "%s %d %d %d %d\n", s[i].name, s[i].weight, s[i].price, s[i].s_price, s[i].star);
+    }
+    fclose(fp);
+    printf("저장됨!\n");
+}
+
 void searchName(Product *s, int count){
     int scount =0;
     char search[20];
