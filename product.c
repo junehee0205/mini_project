@@ -139,3 +139,25 @@ void searchWeight(Product *s, int count){
     printf("\n");
 }
 
+void searchPrice(Product *s, int count){
+    int scount =0;
+    int search[20];
+
+    printf("검색할 가격(보다 작은 상품들 표시)? ");
+    scanf("%d", &search);
+
+    printf("\n No  Name       weight  price   s_price  star\n");
+    printf("==========================================\n");
+    for(int i=0; i<count; i++){
+        if(s[i].price != -1){
+            if(s[i].price < *search){
+                printf("%2d ", i+1);
+                readProduct(s[i]);
+                scount++;
+            }
+        }
+    }
+
+    if(scount == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}
